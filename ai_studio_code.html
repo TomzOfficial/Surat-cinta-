@@ -1,0 +1,1466 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Untuk Nay 💙 - Lampung ↔ Sulawesi</title>
+  
+  <!-- Tailwind CSS Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts Setup -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,500&family=Sacramento&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Custom Tailwind Config to Pairing Fonts and Premium Colors -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            premium: {
+              navy: '#081B33',
+              blue: '#0F4C81',
+              sky: '#5EA8FF',
+              lightSky: '#A1CDFF'
+            },
+            amberAccent: '#EDC988'
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Space Grotesk', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+            handwriting: ['Sacramento', 'cursive']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Core Premium Styles -->
+  <style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #081B33;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #0F4C81;
+      border-radius: 9999px;
+      border: 2px solid #081B33;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #5EA8FF;
+    }
+
+    /* Core Backdrop Glassmorphism */
+    .glass-card {
+      background: rgba(8, 27, 51, 0.55);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(94, 168, 255, 0.18);
+      box-shadow: 0 15px 35px 0 rgba(0, 0, 0, 0.4);
+    }
+    
+    .glass-card-premium {
+      background: linear-gradient(135deg, rgba(15, 76, 129, 0.15) 0%, rgba(8, 27, 51, 0.5) 100%);
+      backdrop-filter: blur(30px);
+      -webkit-backdrop-filter: blur(30px);
+      border: 1px solid rgba(94, 168, 255, 0.25);
+      box-shadow: 0 20px 50px 0 rgba(15, 76, 129, 0.12);
+    }
+
+    .glass-input {
+      background: rgba(8, 27, 51, 0.7);
+      border: 1px solid rgba(94, 168, 255, 0.3);
+      color: #E2E8F0;
+    }
+    .glass-input:focus {
+      border-color: #5EA8FF;
+      box-shadow: 0 0 15px rgba(94, 168, 255, 0.3);
+      outline: none;
+    }
+
+    /* Text Glow Effects */
+    .glow-text-blue {
+      text-shadow: 0 0 15px rgba(94, 168, 255, 0.6), 0 0 30px rgba(15, 76, 129, 0.4);
+    }
+    
+    .glow-text-gold {
+      text-shadow: 0 0 10px rgba(237, 201, 136, 0.5), 0 0 25px rgba(237, 201, 136, 0.3);
+    }
+
+    .glow-border-blue {
+      box-shadow: 0 0 25px rgba(94, 168, 255, 0.25);
+    }
+
+    /* Smooth Breathing for Moon and Atmosphere */
+    @keyframes moonBreathe {
+      0%, 100% {
+        transform: scale(1) translate(-50%, -50%);
+        opacity: 0.92;
+        box-shadow: 0 0 50px 15px rgba(94, 168, 255, 0.35), 0 0 100px 30px rgba(15, 76, 129, 0.25);
+      }
+      50 {
+        transform: scale(1.04) translate(-48%, -48%);
+        opacity: 0.98;
+        box-shadow: 0 0 70px 25px rgba(94, 168, 255, 0.5), 0 0 130px 45px rgba(15, 76, 129, 0.4);
+      }
+    }
+    .animate-moon-glow {
+      animation: moonBreathe 8s ease-in-out infinite;
+    }
+
+    /* Twinkling Keyframes for Static Stars */
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.3; transform: scale(0.85); }
+      50% { opacity: 1; transform: scale(1.15); }
+    }
+
+    /* Polaroid slight tilt effects */
+    .polaroid {
+      background: #FFFFFF;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35), 0 2px 5px rgba(0,0,0,0.1);
+      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .polaroid::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      box-shadow: inset 0 0 20px rgba(0,0,0,0.06);
+      pointer-events: none;
+    }
+    .polaroid-1 { transform: rotate(-1.5deg); }
+    .polaroid-2 { transform: rotate(2deg); }
+    .polaroid-3 { transform: rotate(-2.5deg); }
+    .polaroid-4 { transform: rotate(1deg); }
+
+    .polaroid:hover {
+      transform: rotate(0deg) translateY(-12px) scale(1.05);
+      box-shadow: 0 20px 40px rgba(94, 168, 255, 0.25), 0 5px 15px rgba(0,0,0,0.2);
+      z-index: 20;
+    }
+
+    /* Pulse effects */
+    @keyframes infinitePulse {
+      0%, 100% { transform: scale(1); opacity: 0.82; }
+      50% { transform: scale(1.06); opacity: 1; filter: drop-shadow(0 0 12px rgba(94, 168, 255, 0.5)); }
+    }
+    .animate-infinite-pulse {
+      animation: infinitePulse 3s ease-in-out infinite;
+    }
+
+    /* Sound waves equalizer columns */
+    @keyframes danceWave {
+      0%, 100% { height: 4px; }
+      50% { height: 24px; }
+    }
+    .eq-bar {
+      width: 2px;
+      background: #5EA8FF;
+      height: 4px;
+      transition: height 0.15s ease-in-out;
+    }
+    .playing .eq-bar-1 { animation: danceWave 0.8s ease infinite; }
+    .playing .eq-bar-2 { animation: danceWave 1.2s ease infinite 0.2s; }
+    .playing .eq-bar-3 { animation: danceWave 0.9s ease infinite 0.4s; }
+    .playing .eq-bar-4 { animation: danceWave 1.4s ease infinite 0.1s; }
+
+    /* Timeline line glowing sweep animation */
+    @keyframes sweep {
+      0% { top: -10%; }
+      100% { top: 110%; }
+    }
+    .timeline-glow-sweep::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 4px;
+      height: 120px;
+      background: linear-gradient(to bottom, transparent, #5EA8FF, transparent);
+      animation: sweep 4s linear infinite;
+    }
+
+    /* Custom Floating hearts */
+    @keyframes floatUp {
+      0% { transform: translateY(0) scale(0.8) rotate(0deg); opacity: 0; }
+      10% { opacity: 0.8; }
+      90% { opacity: 0.6; }
+      100% { transform: translateY(-130vh) scale(1.2) rotate(360deg); opacity: 0; }
+    }
+    .floating-heart {
+      position: absolute;
+      pointer-events: none;
+      animation: floatUp 8s linear infinite;
+      color: #5EA8FF;
+      font-size: 1.2rem;
+      filter: drop-shadow(0 0 6px rgba(94, 168, 255, 0.4));
+    }
+
+    /* Distance path moving star */
+    @keyframes dashTranslate {
+      to {
+        stroke-dashoffset: -40;
+      }
+    }
+    .moving-dash {
+      stroke-dasharray: 8, 8;
+      animation: dashTranslate 2.5s linear infinite;
+    }
+
+    /* Text highlight cursor */
+    .typing-cursor::after {
+      content: "|";
+      animation: blink 0.8s step-end infinite;
+      color: #5EA8FF;
+      font-weight: bold;
+    }
+    @keyframes blink {
+      from, to { opacity: 1; }
+      50% { opacity: 0; }
+    }
+  </style>
+</head>
+<body class="bg-[#081B33] text-slate-100 font-sans min-h-screen overflow-x-hidden relative">
+
+  <!-- ================= BACKGROUND CANVAS ================= -->
+  <div class="fixed inset-0 pointer-events-none z-0">
+    <canvas id="sky-canvas" class="w-full h-full block opacity-75"></canvas>
+  </div>
+
+  <!-- Decorative Giant Blur Orbs -->
+  <div class="absolute top-[25vh] -left-48 w-96 h-96 bg-[#0F4C81] opacity-25 rounded-full blur-3xl pointer-events-none z-0"></div>
+  <div class="absolute top-[80vh] -right-48 w-96 h-96 bg-[#5EA8FF] opacity-10 rounded-full blur-3xl pointer-events-none z-0"></div>
+  <div class="absolute bottom-[20vh] left-1/3 w-[500px] h-[500px] bg-[#0F4C81] opacity-15 rounded-full blur-[140px] pointer-events-none z-0"></div>
+
+  <!-- Ambient audio file -->
+  <audio id="bg-audio" loop preload="auto">
+    <source src="music.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- ================= 1. OPENING SCREEN ================= -->
+  <div id="opening-screen" class="fixed inset-0 z-50 bg-[#081B33] flex flex-col items-center justify-center text-center px-4 overflow-hidden select-none transition-all duration-[1500ms] cubic-bezier(0.4, 0, 0.2, 1)">
+    
+    <!-- Big glowing backdrop moon for Opening -->
+    <div class="absolute top-1/2 left-1/2 rounded-full bg-slate-50 opacity-95 animate-moon-glow z-0 w-64 h-64 sm:w-80 sm:h-80 -translate-x-1/2 -translate-y-1/2 select-none pointer-events-none" style="filter: blur(0.5px);">
+      <div class="absolute top-8 left-12 w-10 h-10 rounded-full bg-slate-200/50 mix-blend-multiply filter blur-sm"></div>
+      <div class="absolute top-24 left-32 w-16 h-16 rounded-full bg-slate-200/60 mix-blend-multiply filter blur-md"></div>
+      <div class="absolute top-44 left-16 w-12 h-12 rounded-full bg-slate-200/50 mix-blend-multiply filter blur-sm"></div>
+    </div>
+
+    <!-- Interactive Falling Particles container inside opening -->
+    <div id="opening-hearts" class="absolute inset-0 pointer-events-none z-10"></div>
+
+    <!-- Content Card -->
+    <div class="relative z-20 flex flex-col items-center justify-center mt-6">
+      
+      <!-- Crown monogram design -->
+      <div class="w-16 h-16 rounded-full bg-white/5 border border-white/10 backdrop-blur-md flex items-center justify-center mb-6 animate-infinite-pulse shadow-2xl">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7 text-premium-sky">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+        </svg>
+      </div>
+
+      <!-- Main opening title -->
+      <h1 class="font-serif text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white mb-2 filter drop-shadow-[0_4px_8px_rgba(8,27,51,0.8)] px-2">
+        Untuk Nay 💙
+      </h1>
+      
+      <!-- Sub headers -->
+      <p class="font-display text-sm sm:text-base tracking-widest text-premium-lightSky uppercase mb-6 drop-shadow-md">
+        Lampung ↔ Sulawesi
+      </p>
+
+      <p class="text-sm font-light text-slate-300 max-w-sm mb-12 leading-relaxed drop-shadow-md">
+        Aku punya sesuatu yang spesial buat kamu. Masuk yuk, dan dengarkan isi hatiku di halaman kecil kita ini.
+      </p>
+
+      <!-- Glowing Action Button -->
+      <button id="btn-open" class="px-8 py-4 bg-gradient-to-r from-premium-blue to-premium-sky text-white font-display text-sm font-semibold tracking-wider uppercase rounded-full shadow-[0_4px_25px_rgba(94,168,255,0.45)] hover:shadow-[0_4px_35px_rgba(94,168,255,0.7)] border border-white/20 active:scale-95 transition-all duration-300 relative overflow-hidden group cursor-pointer">
+        <span class="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-25 rotate-12 group-hover:-translate-x-40 ease"></span>
+        <span class="flex items-center gap-2">
+          <span>Buka Surat</span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4">
+            <path fill-rule="evenodd" d="M3 10a.75.75 0 0 1 .75-.75h10.56L10.28 5.22a.75.75 0 1 1 1.06-1.06l5.75 5.75a.75.75 0 0 1 0 1.06l-5.75 5.75a.75.75 0 1 1-1.06-1.06l4.03-4.03H3.75A.75.75 0 0 1 3 10Z" clip-rule="evenodd" />
+          </svg>
+        </span>
+      </button>
+
+      <!-- Date banner -->
+      <div class="mt-16 text-slate-400 font-display text-xs tracking-widest uppercase">
+        — 14 Mei 2026 —
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ================= MAIN WEBSITE CONTENT ================= -->
+  <div id="main-content" class="hidden opacity-0 transition-opacity duration-[2000ms] ease-out z-10 relative">
+
+    <!-- ================= FLOATING GLASS NAVIGATION BAR ================= -->
+    <nav class="sticky top-4 z-40 mx-auto max-w-4xl px-4 w-full h-16 mb-12 pointer-events-none mt-4">
+      <div class="w-full h-full glass-card rounded-full px-5 md:px-8 flex justify-between items-center pointer-events-auto shadow-[0_10px_30px_rgba(0,0,0,0.4)] border border-white/10">
+        <div class="flex items-center gap-2 cursor-pointer" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+          <div class="w-8 h-8 rounded-full bg-premium-blue/40 border border-premium-sky/30 flex items-center justify-center">
+            <span class="text-xs text-premium-sky font-bold font-display">N💙T</span>
+          </div>
+          <span class="text-sm font-serif font-bold tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-white to-premium-lightSky leading-none">
+            Nay's World.
+          </span>
+        </div>
+
+        <div class="hidden md:flex gap-1">
+          <a href="#hero" class="py-1.5 px-3 rounded-full text-xs font-semibold text-slate-300 hover:text-white hover:bg-white/5 transition-all duration-305">Nay</a>
+          <a href="#counter" class="py-1.5 px-3 rounded-full text-xs font-semibold text-slate-300 hover:text-white hover:bg-white/5 transition-all duration-305">Waktu</a>
+          <a href="#timeline" class="py-1.5 px-3 rounded-full text-xs font-semibold text-slate-300 hover:text-white hover:bg-white/5 transition-all duration-305">Cerita</a>
+          <a href="#gallery" class="py-1.5 px-3 rounded-full text-xs font-semibold text-slate-300 hover:text-white hover:bg-white/5 transition-all duration-305">Galeri</a>
+          <a href="#profile" class="py-1.5 px-3 rounded-full text-xs font-semibold text-slate-300 hover:text-white hover:bg-white/5 transition-all duration-305">Tentang</a>
+          <a href="#map" class="py-1.5 px-3 rounded-full text-xs font-semibold text-slate-300 hover:text-white hover:bg-white/5 transition-all duration-305">Jarak</a>
+          <a href="#letter" class="py-1.5 px-3 rounded-full text-xs font-semibold text-slate-300 hover:text-white hover:bg-white/5 transition-all duration-305">Surat</a>
+        </div>
+
+        <div class="block md:hidden">
+          <span class="text-[10px] font-display font-medium uppercase tracking-widest text-[#5EA8FF] bg-[#0F4C81]/30 px-3 py-1 rounded-full border border-premium-sky/20">
+            LDR Couple 💙
+          </span>
+        </div>
+      </div>
+    </nav>
+
+
+    <!-- ================= 2. HERO SECTION ================= -->
+    <header id="hero" class="min-h-[80vh] flex flex-col items-center justify-center text-center px-4 relative max-w-5xl mx-auto py-8">
+      
+      <div class="absolute -top-12 left-1/2 -translate-x-1/2 rounded-full bg-slate-50 opacity-[0.06] blur-xl w-72 h-72 pointer-events-none select-none"></div>
+
+      <div class="w-12 h-12 bg-gradient-to-tr from-[#0F4C81]/30 to-[#5EA8FF]/10 rounded-2xl border border-premium-sky/30 flex items-center justify-center mb-6 relative group hover:rotate-12 transition-transform duration-300">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-premium-sky animate-pulse">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499c-.105-.21-.302-.35-.533-.35-.23 0-.427.14-.533.35L8.273 7.747l-4.693.68c-.23.034-.417.19-.487.41-.07.222-.012.464.148.625l3.395 3.31-.8 4.673c-.04.228.054.457.245.597.124.092.27.141.42.141.096 0 .192-.02.282-.06l4.2-2.21 4.2 2.21c.09.04.186.06.282.06.15 0 .296-.05.42-.141.19-.14.286-.37.246-.597l-.8-4.672 3.395-3.31c.16-.16.218-.403.148-.625-.07-.222-.257-.378-.487-.41l-4.693-.681-2.132-4.249ZM5.418 19.467h13.164a.75.75 0 0 1 0 1.5H5.418a.75.75 0 0 1 0-1.5Z" />
+        </svg>
+      </div>
+
+      <h1 class="text-center font-serif text-6xl sm:text-7xl md:text-8xl font-bold tracking-tight text-white leading-none mb-4 filter drop-shadow-[0_8px_16px_rgba(0,0,0,0.6)] relative">
+        Nay <span class="text-[#5EA8FF] font-sans glow-text-blue block sm:inline mt-2 sm:mt-0">💙</span>
+      </h1>
+
+      <p class="text-center font-display text-lg sm:text-2xl font-semibold tracking-wider text-[#5EA8FF] mb-2 glow-text-blue">
+        Lampung ↔ Sulawesi
+      </p>
+      
+      <p class="text-center text-xs sm:text-sm font-mono text-slate-400 uppercase tracking-[0.25em] mb-10">
+        Disatukan oleh Takdir di <span class="text-[#EDC988]">14 Mei 2026</span>
+      </p>
+
+      <p class="text-center text-sm md:text-base text-slate-300 max-w-2xl leading-relaxed mb-12 px-4 drop-shadow-sm">
+        Selamat datang di dunia kecil kita. Halaman ini aku persembahkan khusus buat kamu, sebagai bukti rasa sayangku yang tulus melewati luasnya lautan dan jarak di antara kita.
+      </p>
+
+      <div class="relative flex flex-col items-center gap-2 cursor-pointer pt-6" onclick="document.getElementById('counter').scrollIntoView({behavior: 'smooth'})">
+        <span class="text-[10px] font-mono uppercase tracking-[0.2em] text-[#5EA8FF]">Scroll ke bawah ya</span>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 text-premium-sky animate-bounce">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+        </svg>
+      </div>
+    </header>
+
+
+    <!-- ================= 3. LOVE COUNTER SECTION ================= -->
+    <section id="counter" class="scroll-mt-24 px-4 py-20 bg-gradient-to-b from-[#081B33] to-[#040E1B]">
+      <div class="max-w-4xl mx-auto text-center mb-10">
+        <span class="text-xs font-mono text-premium-sky uppercase tracking-widest bg-premium-blue/30 border border-premium-sky/20 px-3 py-1 rounded-full mb-3 inline-block">
+          🕒 Love Counter
+        </span>
+        <h2 class="text-3xl md:text-4xl font-serif font-bold text-white mb-3">
+          Waktu yang Telah Kita Lalui
+        </h2>
+        <p class="text-sm text-slate-300 max-w-lg mx-auto leading-relaxed">
+          Setiap detik terasa sangat berharga sejak kita mulai bersama. Terhitung otomatis secara langsung sejak:
+        </p>
+        <p class="text-xs sm:text-sm font-mono text-[#EDC988] uppercase tracking-widest mt-2 bg-amber-500/10 border border-amberAccent/20 px-4 py-1.5 rounded-full inline-block">
+          📅 Kamis, 14 Mei 2026
+        </p>
+      </div>
+
+      <div class="max-w-3xl mx-auto px-2">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 justify-center">
+          
+          <div class="glass-card-premium rounded-2xl px-4 py-8 text-center flex flex-col justify-center shadow-2xl relative overflow-hidden group hover:border-[#5EA8FF]/50 transition-all duration-500">
+            <span id="countdown-days" class="text-5xl sm:text-6xl font-bold font-display text-white leading-none glow-text-blue group-hover:scale-105 transition-transform duration-500">
+              00
+            </span>
+            <span class="text-[10px] font-mono tracking-widest text-[#5EA8FF] uppercase mt-3.5">
+              Hari Penantian
+            </span>
+          </div>
+
+          <div class="glass-card-premium rounded-2xl px-4 py-8 text-center flex flex-col justify-center shadow-2xl relative overflow-hidden group hover:border-[#5EA8FF]/50 transition-all duration-500">
+            <span id="countdown-hours" class="text-5xl sm:text-6xl font-bold font-display text-white leading-none glow-text-blue group-hover:scale-105 transition-transform duration-500">
+              00
+            </span>
+            <span class="text-[10px] font-mono tracking-widest text-[#5EA8FF] uppercase mt-3.5">
+              Jam Kerinduan
+            </span>
+          </div>
+
+          <div class="glass-card-premium rounded-2xl px-4 py-8 text-center flex flex-col justify-center shadow-2xl relative overflow-hidden group hover:border-[#5EA8FF]/50 transition-all duration-500">
+            <span id="countdown-minutes" class="text-5xl sm:text-6xl font-bold font-display text-white leading-none glow-text-blue group-hover:scale-105 transition-transform duration-500">
+              00
+            </span>
+            <span class="text-[10px] font-mono tracking-widest text-[#5EA8FF] uppercase mt-3.5">
+              Menit Detak Rasa
+            </span>
+          </div>
+
+          <div class="glass-card-premium rounded-2xl px-4 py-8 text-center flex flex-col justify-center shadow-2xl relative overflow-hidden group hover:border-[#5EA8FF]/50 transition-all duration-500">
+            <span id="countdown-seconds" class="text-5xl sm:text-6xl font-bold font-display text-white leading-none glow-text-blue group-hover:scale-105 transition-transform duration-500">
+              00
+            </span>
+            <span class="text-[10px] font-mono tracking-widest text-[#EDC988] uppercase mt-3.5">
+              Detik Berharga
+            </span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ================= 4. TIMELINE CERITA SECTION ================= -->
+    <section id="timeline" class="scroll-mt-24 px-4 py-20 relative bg-[#040E1B]">
+      
+      <div class="max-w-4xl mx-auto text-center mb-16">
+        <span class="text-xs font-mono text-premium-sky uppercase tracking-widest bg-premium-blue/30 border border-premium-sky/20 px-3 py-1 rounded-full mb-3 inline-block">
+          📖 Rekam Kisah
+        </span>
+        <h2 class="text-3xl md:text-4xl font-serif font-bold text-white mb-3">
+          Timeline Perjalanan Cinta Kita
+        </h2>
+        <p class="text-sm text-slate-300 max-w-lg mx-auto leading-relaxed">
+          Setiap tapak langkah memiliki warna tersendiri. Ini adalah lembar catatan bagaimana dua asmara jarak jauh ini tumbuh berkembang.
+        </p>
+      </div>
+
+      <div class="max-w-4xl mx-auto relative px-4">
+        
+        <div class="absolute left-1/2 -translate-x-1/2 top-4 bottom-4 w-0.5 bg-gradient-to-b from-[#0F4C81] via-[#5EA8FF] to-[#0F4C81] opacity-70 timeline-glow-sweep"></div>
+
+        <!-- Node 1: Pertama Kenal (Left Side) -->
+        <div class="relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 mb-16 items-center">
+          <div class="transparent order-2 md:order-1 text-right-custom md:text-right px-0 md:pr-12 md:pl-0">
+            <div class="glass-card rounded-2xl p-6 border-l-4 border-l-premium-sky hover:border-[#5EA8FF]/50 transition-all duration-300 transform hover:-translate-y-1 block shadow-xl">
+              <span class="text-[10px] font-mono text-premium-sky uppercase tracking-widest block mb-2">Awal Cerita</span>
+              <h3 class="text-xl font-serif font-bold text-white mb-2">Pertama Kenal</h3>
+              <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                Awalnya nggak terduga dan nggak disangka-sangka. Kita yang terpisah jarak Lampung-Sulawesi mulai saling menyapa lewat media sosial. Sederhana, tapi di situlah rasa nyaman ini pertama kalinya tumbuh di hatiku.
+              </p>
+            </div>
+          </div>
+          <div class="absolute left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-[#081B33] border-4 border-premium-sky flex items-center justify-center z-10 shadow-lg glow-border-blue hover:scale-125 transition-transform duration-300">
+            <span class="w-2.5 h-2.5 rounded-full bg-premium-sky animate-ping"></span>
+          </div>
+          <div class="hidden md:block order-2"></div>
+        </div>
+
+        <!-- Node 2: Mulai Dekat (Right Side) -->
+        <div class="relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 mb-16 items-center">
+          <div class="hidden md:block"></div>
+          <div class="absolute left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-[#081B33] border-4 border border-premium-sky flex items-center justify-center z-10 shadow-lg glow-border-blue hover:scale-125 transition-transform duration-300">
+            <span class="w-2.5 h-2.5 rounded-full bg-[#5EA8FF] animate-ping"></span>
+          </div>
+          <div class="transparent px-0 md:pl-12">
+            <div class="glass-card rounded-2xl p-6 border-r-4 border-r-premium-sky hover:border-[#5EA8FF]/50 transition-all duration-300 transform hover:-translate-y-1 block shadow-xl">
+              <span class="text-[10px] font-mono text-premium-sky uppercase tracking-widest block mb-2">Makin Nyaman</span>
+              <h3 class="text-xl font-serif font-bold text-white mb-2">Mulai Dekat</h3>
+              <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                Setiap malam kita lewatkan dengan saling bercerita banyak hal lewat telepon. Mulai dari kamu yang suka Matcha sampai candaan-candaan receh yang bikin seneng. Rasanya jarak Lampung-Sulawesi terlupakan karena kita merasa klop banget.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Node 3: Anniversary 14 Mei 2026 (Left Side) -->
+        <div class="relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 mb-16 items-center">
+          <div class="transparent order-2 md:order-1 text-right-custom md:text-right px-0 md:pr-12 md:pl-0">
+            <div class="glass-card-premium rounded-2xl p-6 border-l-4 border-l-amberAccent hover:border-amberAccent/50 transition-all duration-300 transform hover:-translate-y-2 block shadow-2xl">
+              <span class="text-[10px] font-mono text-[#EDC988] uppercase tracking-widest block mb-2">Komitmen Bersama</span>
+              <h3 class="text-xl font-serif font-bold text-white mb-2">Jadian! (14 Mei 2026)</h3>
+              <p class="text-xs sm:text-sm text-slate-200 leading-relaxed">
+                Hari di mana kita akhirnya resmi berkomitmen buat jalan bareng. Kita sepakat buat saling jaga perasaan meskipun ada jarak yang memisahkan. Berjanji buat terus berjuang demi mimpi indah kita bersama.
+              </p>
+            </div>
+          </div>
+          <div class="absolute left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-[#081B33] border-4 border-amberAccent flex items-center justify-center z-10 shadow-2xl hover:scale-125 transition-transform duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 text-amberAccent animate-pulse">
+              <path d="m9.653 16.915-.005-.003-.019-.01a20.759 20.759 0 0 1-1.162-.682 22.045 22.045 0 0 1-2.582-1.9c-.04-.031-.08-.063-.122-.095a12.183 12.183 0 0 1-3.758-4.743 1.25 1.25 0 0 1 1.066-1.748L7.33 7.5l-1.076-2.564a1.25 1.25 0 0 1 2.21-.933l2.88 3.513 2.88-3.514a1.25 1.25 0 0 1 2.21.933L15.341 7.5l4.244.237a1.25 1.25 0 0 1 1.066 1.748c-.286.689-.661 1.341-1.11 1.947a11.832 11.832 0 0 1-2.77 2.891c-.042.032-.082.064-.122.095a22.043 22.043 0 0 1-2.582 1.9 20.744 20.744 0 0 1-1.162.682l-.019.01-.005.003h-.002a.75.75 0 0 1-.717 0h-.002Z" />
+            </svg>
+          </div>
+          <div class="hidden md:block order-2"></div>
+        </div>
+
+        <!-- Node 4: Sekarang (Right Side) -->
+        <div class="relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 mb-4 items-center">
+          <div class="hidden md:block"></div>
+          <div class="absolute left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-[#081B33] border-4 border border-premium-sky flex items-center justify-center z-10 shadow-lg glow-border-blue hover:scale-125 transition-transform duration-300">
+            <span class="w-2.5 h-2.5 rounded-full bg-premium-sky animate-ping"></span>
+          </div>
+          <div class="transparent px-0 md:pl-12">
+            <div class="glass-card rounded-2xl p-6 border-r-4 border-r-premium-sky hover:border-[#5EA8FF]/50 transition-all duration-300 transform hover:-translate-y-1 block shadow-xl">
+              <span class="text-[10px] font-mono text-premium-sky uppercase tracking-widest block mb-2">Terus Bertahan</span>
+              <h3 class="text-xl font-serif font-bold text-white mb-2">Hingga Sekarang</h3>
+              <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                Sampe hari ini, Lampung-Sulawesi emang masih terasa jauh di peta. Tapi rasa sayang dan rindu kita justru makin kuat setiap harinya. Kita selalu berjuang setiap hari buat menjaga hubungan ini agar abadi.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================= 5. PHOTO GALLERY SECTION ================= -->
+    <section id="gallery" class="scroll-mt-24 px-4 py-20 bg-gradient-to-b from-[#040E1B] to-[#081B33]">
+      <div class="max-w-4xl mx-auto text-center mb-16">
+        <span class="text-xs font-mono text-premium-sky uppercase tracking-widest bg-premium-blue/30 border border-premium-sky/20 px-3 py-1 rounded-full mb-3 inline-block">
+          📸 Galeri Foto
+        </span>
+        <h2 class="text-3xl md:text-4xl font-serif font-bold text-white mb-3">
+          foto kamu yang aku sayang 
+        </h2>
+        <p class="text-sm text-slate-300 max-w-lg mx-auto leading-relaxed">
+          Ada cerita sendiri di balik setiap foto. Klik fotonya untuk melihat lebih jelas dan membaca cerita lengkapnya ya.
+        </p>
+      </div>
+
+      <div class="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-4 justify-items-center">
+        
+        <!-- Photo 1 -->
+        <div class="polaroid polaroid-1 relative w-64 p-4 pb-8 cursor-pointer rounded-sm" onclick="openLightbox(0)">
+          <div class="w-full h-48 overflow-hidden bg-slate-900 relative">
+            <img class="w-full h-full object-cover transition-transform duration-500 hover:scale-110" 
+                 src="src/assets/images/love_stars_hill_1782107865883.jpg" 
+                 onerror="this.onerror=null; this.src='img1.jpg';" 
+                 alt="Menatap gemerlap bintang" referrerPolicy="no-referrer">
+          </div>
+          <div class="pt-4 text-center">
+            <p class="font-handwriting text-2xl text-slate-800 leading-none">Menatap Bintang</p>
+            <p class="text-[9px] font-mono text-slate-500 uppercase tracking-widest mt-1">Lembah Impian</p>
+          </div>
+        </div>
+
+        <!-- Photo 2 -->
+        <div class="polaroid polaroid-2 relative w-64 p-4 pb-8 cursor-pointer rounded-sm" onclick="openLightbox(1)">
+          <div class="w-full h-48 overflow-hidden bg-slate-900 relative">
+            <img class="w-full h-full object-cover transition-transform duration-500 hover:scale-110" 
+                 src="src/assets/images/love_beach_twilight_1782107881207.jpg" 
+                 onerror="this.onerror=null; this.src='img2.jpg';" 
+                 alt="Senja di Pantai" referrerPolicy="no-referrer">
+          </div>
+          <div class="pt-4 text-center">
+            <p class="font-handwriting text-2xl text-slate-800 leading-none">Senja Di Pantai</p>
+            <p class="text-[9px] font-mono text-slate-500 uppercase tracking-widest mt-1">Sajak Lembayung</p>
+          </div>
+        </div>
+
+        <!-- Photo 3 -->
+        <div class="polaroid polaroid-3 relative w-64 p-4 pb-8 cursor-pointer rounded-sm" onclick="openLightbox(2)">
+          <div class="w-full h-48 overflow-hidden bg-slate-900 relative">
+            <img class="w-full h-full object-cover transition-transform duration-500 hover:scale-110" 
+                 src="src/assets/images/love_couple_coffee_1782107895665.jpg" 
+                 onerror="this.onerror=null; this.src='img3.jpg';" 
+                 alt="Cangkir Kopi Hangat" referrerPolicy="no-referrer">
+          </div>
+          <div class="pt-4 text-center">
+            <p class="font-handwriting text-2xl text-slate-800 leading-none">Cangkir Hangat</p>
+            <p class="text-[9px] font-mono text-slate-500 uppercase tracking-widest mt-1">Kafe Rerata Jiwa</p>
+          </div>
+        </div>
+
+        <!-- Photo 4 -->
+        <div class="polaroid polaroid-4 relative w-64 p-4 pb-8 cursor-pointer rounded-sm" onclick="openLightbox(3)">
+          <div class="w-full h-48 overflow-hidden bg-slate-900 relative">
+            <img class="w-full h-full object-cover transition-transform duration-500 hover:scale-110" 
+                 src="src/assets/images/love_glowing_umbrella_1782107914098.jpg" 
+                 onerror="this.onerror=null; this.src='img4.jpg';" 
+                 alt="Payung Bercahaya" referrerPolicy="no-referrer">
+          </div>
+          <div class="pt-4 text-center">
+            <p class="font-handwriting text-2xl text-slate-800 leading-none">Payung Teduh</p>
+            <p class="text-[9px] font-mono text-slate-500 uppercase tracking-widest mt-1">Dera Raindrops</p>
+          </div>
+        </div>
+
+        <!-- Photo 5 -->
+        <div class="polaroid polaroid-2 relative w-64 p-4 pb-8 cursor-pointer rounded-sm" onclick="openLightbox(4)">
+          <div class="w-full h-48 overflow-hidden bg-slate-900 relative">
+            <img class="w-full h-full object-cover transition-transform duration-500 hover:scale-110" 
+                 src="src/assets/images/love_lake_lanterns_1782107927764.jpg" 
+                 onerror="this.onerror=null; this.src='img5.jpg';" 
+                 alt="Lampion Danau" referrerPolicy="no-referrer">
+          </div>
+          <div class="pt-4 text-center">
+            <p class="font-handwriting text-2xl text-slate-800 leading-none">Lentera Harapan</p>
+            <p class="text-[9px] font-mono text-slate-500 uppercase tracking-widest mt-1">Riak Riang Danau</p>
+          </div>
+        </div>
+
+        <!-- Photo 6 -->
+        <div class="polaroid polaroid-1 relative w-64 p-4 pb-8 cursor-pointer rounded-sm" onclick="openLightbox(5)">
+          <div class="w-full h-48 overflow-hidden bg-slate-900 relative">
+            <img class="w-full h-full object-cover transition-transform duration-500 hover:scale-110" 
+                 src="src/assets/images/love_melody_night_1782107941283.jpg" 
+                 onerror="this.onerror=null; this.src='img6.jpg';" 
+                 alt="Melodi Malam" referrerPolicy="no-referrer">
+          </div>
+          <div class="pt-4 text-center">
+            <p class="font-handwriting text-2xl text-slate-800 leading-none">Melodi Sunyi</p>
+            <p class="text-[9px] font-mono text-slate-500 uppercase tracking-widest mt-1">Senar Keheningan</p>
+          </div>
+        </div>
+
+        <!-- Photo 7 -->
+        <div class="polaroid polaroid-4 relative w-64 p-4 pb-8 cursor-pointer rounded-sm" onclick="openLightbox(6)">
+          <div class="w-full h-48 overflow-hidden bg-slate-900 relative">
+            <img class="w-full h-full object-cover transition-transform duration-500 hover:scale-110" 
+                 src="src/assets/images/love_warm_cuddle_1782107955242.jpg" 
+                 onerror="this.onerror=null; this.src='img7.jpg';" 
+                 alt="Pelukan Hangat" referrerPolicy="no-referrer">
+          </div>
+          <div class="pt-4 text-center">
+            <p class="font-handwriting text-2xl text-slate-800 leading-none">Kehangatan Nyata</p>
+            <p class="text-[9px] font-mono text-slate-500 uppercase tracking-widest mt-1">Coretan Damai</p>
+          </div>
+        </div>
+
+        <!-- Photo 8 -->
+        <div class="polaroid polaroid-3 relative w-64 p-4 pb-8 cursor-pointer rounded-sm" onclick="openLightbox(7)">
+          <div class="w-full h-48 overflow-hidden bg-slate-900 relative">
+            <img class="w-full h-full object-cover transition-transform duration-500 hover:scale-110" 
+                 src="src/assets/images/love_holding_hands_1782107970376.jpg" 
+                 onerror="this.onerror=null; this.src='img8.jpg';" 
+                 alt="Genggaman Erat" referrerPolicy="no-referrer">
+          </div>
+          <div class="pt-4 text-center">
+            <p class="font-handwriting text-2xl text-slate-800 leading-none">Genggam Jemari</p>
+            <p class="text-[9px] font-mono text-slate-500 uppercase tracking-widest mt-1">Tali Abadi Rasa</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================= 6. TENTANG NAY SECTION ================= -->
+    <section id="profile" class="scroll-mt-24 px-4 py-20 bg-[#081B33]">
+      <div class="max-w-4xl mx-auto text-center mb-16">
+        <span class="text-xs font-mono text-premium-sky uppercase tracking-widest bg-premium-blue/30 border border-premium-sky/20 px-3 py-1 rounded-full mb-3 inline-block">
+          👑 Sifat Favorit
+        </span>
+        <h2 class="text-3xl md:text-4xl font-serif font-bold text-white mb-3">
+          Segala Hal Tentang Nay
+        </h2>
+        <p class="text-sm text-slate-300 max-w-lg mx-auto leading-relaxed">
+          Ini hal-hal favorit tentang kamu yang selalu bisa bikin aku senyum dan makin sayang setiap kali memikirkannya:
+        </p>
+      </div>
+
+      <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-5 gap-6 px-4">
+        
+        <!-- Mie Ayam -->
+        <div class="glass-card-premium rounded-2xl p-6 text-center hover:border-premium-sky/40 hover:-translate-y-1 transition-all duration-300 flex flex-col items-center shadow-lg">
+          <div class="text-4xl mb-4 transform hover:scale-125 transition-transform duration-300 select-none">🍜</div>
+          <h3 class="font-display text-sm font-semibold text-white tracking-wider uppercase mb-1">Mie Ayam</h3>
+          <p class="text-[11px] font-mono text-slate-400 mb-3">Makanan Terpilih</p>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Makanan favorit kamu yang selalu sukses bikin kamu senyum lagi setelah seharian capek beraktivitas.
+          </p>
+        </div>
+
+        <!-- Matcha -->
+        <div class="glass-card-premium rounded-2xl p-6 text-center hover:border-premium-sky/40 hover:-translate-y-1 transition-all duration-300 flex flex-col items-center shadow-lg">
+          <div class="text-4xl mb-4 transform hover:scale-125 transition-transform duration-300 select-none">🍵</div>
+          <h3 class="font-display text-sm font-semibold text-white tracking-wider uppercase mb-1">Matcha</h3>
+          <p class="text-[11px] font-mono text-slate-400 mb-3">Mood Booster</p>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Minuman matcha dingin favorit yang selalu bisa nenangin pikiran dan bikin mood kamu balik bagus.
+          </p>
+        </div>
+
+        <!-- Blue Color -->
+        <div class="glass-card-premium rounded-2xl p-6 text-center hover:border-premium-sky/40 hover:-translate-y-1 transition-all duration-300 flex flex-col items-center shadow-lg">
+          <div class="text-4xl mb-4 transform hover:scale-125 transition-transform duration-300 select-none">💙</div>
+          <h3 class="font-display text-sm font-semibold text-white tracking-wider uppercase mb-1">Biru</h3>
+          <p class="text-[11px] font-mono text-slate-400 mb-3">Warna Kedamaian</p>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Warna biru favorit kamu yang melambangkan rasa sayang kita yang tulus dan tenang meskipun terpisah jarak.
+          </p>
+        </div>
+
+        <!-- birthday -->
+        <div class="glass-card-premium rounded-2xl p-6 text-center hover:border-premium-sky/40 hover:-translate-y-1 transition-all duration-300 flex flex-col items-center shadow-lg">
+          <div class="text-4xl mb-4 transform hover:scale-125 transition-transform duration-300 select-none">🎂</div>
+          <h3 class="font-display text-sm font-semibold text-white tracking-wider uppercase mb-1">15 Februari 2013</h3>
+          <p class="text-[11px] font-mono text-slate-400 mb-3">Hari Istimewa</p>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Hari lahirnya orang paling spesial dalam hidupku, yang selalu jadi penyemangat terbaikku.
+          </p>
+        </div>
+
+        <!-- Location -->
+        <div class="glass-card-premium rounded-2xl p-6 text-center hover:border-premium-sky/40 hover:-translate-y-1 transition-all duration-300 flex flex-col items-center shadow-lg">
+          <div class="text-4xl mb-4 transform hover:scale-125 transition-transform duration-300 select-none">📍</div>
+          <h3 class="font-display text-sm font-semibold text-white tracking-wider uppercase mb-1">Lampung</h3>
+          <p class="text-[11px] font-mono text-slate-400 mb-3">Asal Nay</p>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Kota tempat kamu tinggal sekarang. Cuacanya selalu aku pantau setiap hari biar tahu kabar kamu di sana.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================= 7. PETA JARAK SECTION ================= -->
+    <section id="map" class="scroll-mt-24 px-4 py-20 bg-gradient-to-b from-[#081B33] to-[#040E1B]">
+      <div class="max-w-4xl mx-auto text-center mb-12">
+        <span class="text-xs font-mono text-premium-sky uppercase tracking-widest bg-premium-blue/30 border border-premium-sky/20 px-3 py-1 rounded-full mb-3 inline-block">
+          🗺️ Peta Jarak
+        </span>
+        <h2 class="text-3xl md:text-4xl font-serif font-bold text-white mb-3">
+          Jarak Lampung ↔ Sulawesi
+        </h2>
+        <p class="text-sm text-slate-300 max-w-lg mx-auto leading-relaxed">
+          Meskipun terpisah ribuan kilometer di peta, rasa sayang kita selalu bisa menghubungkan hati kita melewati luasnya lautan.
+        </p>
+      </div>
+
+      <div class="max-w-3xl mx-auto px-4">
+        <div class="glass-card rounded-3xl p-6 md:p-10 relative overflow-hidden shadow-2xl flex flex-col items-center justify-center">
+          
+          <div class="absolute inset-0 bg-[radial-gradient(rgba(59,130,246,0.06)_1.5px,transparent_1.5px)] bg-[size:16px_16px] pointer-events-none"></div>
+
+          <!-- SVG Visual Map Area -->
+          <svg class="w-full h-48 md:h-64 relative z-10" viewBox="0 0 500 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+            
+            <!-- Point Lampung -->
+            <g id="node-lampung">
+              <circle cx="80" cy="140" r="15" fill="#5EA8FF" fill-opacity="0.1" class="animate-pulse" style="animation-duration: 2.2s;"></circle>
+              <circle cx="80" cy="140" r="6" fill="#0F4C81" stroke="#5EA8FF" stroke-width="2" class="glow-border-blue" />
+              <text x="80" y="172" fill="#E2E8F0" font-family="Space Grotesk, sans-serif" font-weight="605" font-size="12" text-anchor="middle">Lampung 📍</text>
+              <text x="80" y="186" fill="#5EA8FF" font-family="monospace" font-size="9" text-anchor="middle">SUMATERA</text>
+            </g>
+
+            <!-- Line Path connecting them (Parabolic Arc) -->
+            <path id="love-path" d="M 80 140 Q 250 20 420 100" stroke="rgba(94, 168, 255, 0.25)" stroke-width="2.5" stroke-linecap="round" />
+            
+            <!-- Moving lighting courier -->
+            <path d="M 80 140 Q 250 20 420 100" stroke="#5EA8FF" stroke-width="2.5" stroke-linecap="round" class="moving-dash" />
+
+            <!-- Point Sulawesi -->
+            <g id="node-sulawesi">
+              <circle cx="420" cy="100" r="20" fill="#EDC988" fill-opacity="0.15" class="animate-pulse" style="animation-duration: 1.8s;"></circle>
+              <circle cx="420" cy="100" r="8" fill="#0F4C81" stroke="#EDC988" stroke-width="2" />
+              <path d="M 420 102 L 418 100 C 416 98 415 97 415 96 C 415 95 416 94 417 94 C 418 94 419 95 420 96 C 421 95 422 94 423 94 C 424 94 425 95 425 96 C 425 97 424 98 422 100 Z" fill="#EDC988"></path>
+              <text x="420" y="132" fill="#E2E8F0" font-family="Space Grotesk, sans-serif" font-weight="605" font-size="12" text-anchor="middle">Sulawesi 💙</text>
+              <text x="420" y="146" fill="#EDC988" font-family="monospace" font-size="9" text-anchor="middle">KOTA NAY</text>
+            </g>
+
+            <!-- Traveling Star Marker courier -->
+            <circle r="4" fill="#5EA8FF">
+              <animateMotion dur="4s" repeatCount="indefinite" path="M 80 140 Q 250 20 420 100" />
+            </circle>
+
+            <!-- Heart moving along path -->
+            <g>
+              <path d="M -4 -2 L 0 -6 L 4 -2 L 0 2 Z" fill="#EDC988">
+                <animateMotion dur="4s" begin="2s" repeatCount="indefinite" path="M 80 140 Q 250 20 420 100" />
+              </path>
+            </g>
+
+            <!-- Label Distance -->
+            <rect x="210" y="75" width="80" height="20" rx="10" fill="#081B33" stroke="rgba(94, 168, 255, 0.3)" stroke-width="1" />
+            <text x="250" y="88" fill="#5EA8FF" font-family="monospace" font-weight="bold" font-size="10" text-anchor="middle">± 1,400 KM</text>
+          </svg>
+
+          <div class="mt-6 text-center max-w-md relative z-20">
+            <h4 class="font-serif text-lg font-bold text-white mb-1">Satu Langit, Satu Hati</h4>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Meskipun laut Jawa membentang luas di antara kita, itu nggak pernah jadi halangan buat hati kita untuk selalu dekat, saling percaya, dan menyayangi satu sama lain.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ================= 8. SURAT CINTA SECTION ================= -->
+    <section id="letter" class="scroll-mt-24 px-4 py-20 bg-[#040E1B]">
+      
+      <div class="max-w-4xl mx-auto text-center mb-12">
+        <span class="text-xs font-mono text-premium-sky uppercase tracking-widest bg-premium-blue/30 border border-premium-sky/20 px-3 py-1 rounded-full mb-3 inline-block">
+          ✉️ Surat Cinta Buat Nay
+        </span>
+        <h2 class="text-3xl md:text-4xl font-serif font-bold text-white mb-3">
+          Surat Singkat Dari Lubuk Hati
+        </h2>
+        <p class="text-sm text-slate-300 max-w-lg mx-auto leading-relaxed">
+          Sebuah surat tulus yang aku tulis khusus buat nemenin hari-hari kamu. Nikmati ketikannya di bawah ya:
+        </p>
+      </div>
+
+      <div class="max-w-3xl mx-auto px-4">
+        <div class="glass-card-premium rounded-3xl p-6 md:p-10 relative shadow-2xl border border-premium-sky/25">
+          
+          <div class="absolute -top-4 -right-4 w-12 h-12 bg-amber-500/10 border border-amberAccent/40 rounded-full flex items-center justify-center rotate-12 select-none pointer-events-none">
+            <span class="font-serif text-amberAccent text-lg font-bold">Tom</span>
+          </div>
+
+          <div class="flex flex-wrap items-center justify-between border-b border-white/10 pb-4 mb-6 gap-2">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-premium-sky animate-ping"></span>
+              <span class="text-[10px] font-mono uppercase tracking-widest text-[#5EA8FF]">Status: Sedang Mengetik...</span>
+            </div>
+
+            <!-- Playback Control Tool Buttons -->
+            <div class="flex items-center gap-2">
+              <button id="btn-letter-pause" class="p-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 hover:text-white transition-all text-xs flex items-center gap-1 cursor-pointer" onclick="toggleLetterPlayback()">
+                <svg id="letter-pause-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-3.5 h-3.5">
+                  <path d="M4.5 2A1.5 1.5 0 0 0 3 3.5v9A1.5 1.5 0 0 0 4.5 14h2a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 8 2H4.5ZM11.5 2a1.5 1.5 0 0 0-1.5 1.5v9a1.5 1.5 0 0 0 1.5 1.5h2a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 15 2h-3.5Z" />
+                </svg>
+                <span id="letter-pause-txt">Pause</span>
+              </button>
+              <button id="btn-letter-restart" class="p-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 hover:text-white transition-all text-xs flex items-center gap-1 cursor-pointer" onclick="restartTyping()">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-3.5 h-3.5">
+                  <path fill-rule="evenodd" d="M12.5 9.75A2.75 2.75 0 0 0 9.75 7H4.56l2.22 2.22a.75.75 0 1 1-1.06 1.06L2.22 6.78a.75.75 0 0 1 0-1.06l3.5-3.5a.75.75 0 0 1 1.06 1.06L4.56 5.5h5.19a4.25 4.25 0 0 1 4.25 4.25v1.5a.75.75 0 0 1-1.5 0v-1.5Z" clip-rule="evenodd" />
+                </svg>
+                <span>Ulangi</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Typewriter core display body -->
+          <div id="letter-body" class="font-serif text-slate-100 text-base md:text-lg leading-relaxed space-y-6 md:space-y-8 tracking-wide min-h-[350px] relative typing-cursor">
+            <!-- Rendered paragraphs output directly here via JS -->
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ================= 9. ENDING / CLOSING SECTION ================= -->
+    <section id="ending" class="scroll-mt-24 min-h-screen flex flex-col items-center justify-center text-center px-4 relative bg-[#040E1B] overflow-hidden">
+      
+      <!-- Big ambient glow moon for ending section -->
+      <div class="absolute top-1/2 left-1/2 rounded-full bg-slate-50 opacity-95 animate-moon-glow z-0 w-52 h-52 sm:w-64 sm:h-64 -translate-x-1/2 -translate-y-1/2 select-none pointer-events-none" style="filter: blur(0.5px);">
+        <div class="absolute top-6 left-10 w-8 h-8 rounded-full bg-slate-200/50 mix-blend-multiply filter blur-sm"></div>
+        <div class="absolute top-20 left-24 w-12 h-12 rounded-full bg-slate-200/60 mix-blend-multiply filter blur-md"></div>
+      </div>
+
+      <!-- Content wrapper overlay -->
+      <div class="relative z-10 flex flex-col items-center max-w-2xl px-4 py-12">
+        
+        <!-- Large Glowing Infinity Symbol -->
+        <div class="mb-8 select-none">
+          <span class="text-7xl sm:text-8xl font-light text-transparent bg-clip-text bg-gradient-to-r from-premium-sky to-premium-lightSky leading-none animate-pulse filter drop-shadow-[0_0_15px_rgba(94,168,255,0.7)]">
+            ∞
+          </span>
+        </div>
+
+        <p class="font-mono text-xs text-[#5EA8FF] uppercase tracking-[0.3em] mb-4">
+          — Kita Selamanya —
+        </p>
+
+        <!-- Touchy emotional ending subtitle -->
+        <h3 class="font-serif text-2xl sm:text-3xl font-bold text-white mb-6 leading-snug">
+          "Jarak mungkin memisahkan tempat kita berdiri, tetapi tidak pernah memisahkan rasa yang tersimpan."
+        </h3>
+
+        <!-- Cursive Signature -->
+        <div class="pt-4 pb-12 flex flex-col items-center">
+          <p class="text-xs font-mono text-slate-400 uppercase tracking-widest mb-2">Tertanda,</p>
+          <p class="font-handwriting text-5xl text-amberAccent select-none glow-text-gold transform hover:rotate-2 transition-transform duration-300">
+            Masa depanmu, Tom 🤍
+          </p>
+        </div>
+
+        <div class="flex flex-col items-center justify-center gap-1.5 text-[10px] font-mono tracking-widest text-slate-500 uppercase border-t border-blue-950 w-full pt-8 max-w-md">
+          <p>© 2026 • Khusus Untuk Nay tercinta</p>
+          <p class="text-premium-sky">Dibuat dengan segenap cinta & rindu</p>
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+
+
+  <!-- ================= 10. SINGLE-PLAYER LIGHTBOX MODAL ================= -->
+  <div id="lightbox" class="fixed inset-0 z-50 bg-[#081B33]/95 backdrop-blur-xl hidden opacity-0 flex flex-col items-center justify-center px-4 transition-all duration-300" onclick="closeLightbox(event)">
+    <div class="max-w-4xl w-full flex flex-col items-center relative" onclick="event.stopPropagation()">
+      
+      <!-- Close icon button inside box -->
+      <button class="absolute -top-12 right-0 p-2.5 rounded-full bg-white/5 border border-white/10 hover:bg-white/15 text-white active:scale-90 transition-all cursor-pointer" onclick="closeLightbox(null)">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+        </svg>
+      </button>
+
+      <!-- Carousel body slide wrapper -->
+      <div class="w-full flex justify-between items-center gap-3 sm:gap-6 mt-4">
+        
+        <!-- Chevron Left -->
+        <button class="p-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/15 text-white active:scale-90 transition-all cursor-pointer" onclick="prevMovieSlide()">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+          </svg>
+        </button>
+
+        <!-- Highlighted polaroid inside movie layout -->
+        <div class="bg-white p-4 pb-8 max-w-md w-full rounded-sm shadow-2xl transform rotate-0 scale-95 transition-transform duration-500 select-none">
+          <div class="w-full h-80 sm:h-96 md:h-[450px] overflow-hidden bg-slate-900 border border-slate-100/50">
+            <img id="lightbox-img" class="w-full h-full object-cover select-none" src="" alt="Fokus memori" referrerPolicy="no-referrer">
+          </div>
+          <div class="pt-5 text-center px-2">
+            <h4 id="lightbox-label" class="font-handwriting text-3xl font-semibold text-slate-800 leading-none">Menatap Bintang</h4>
+            <p id="lightbox-desc" class="text-xs text-slate-600 font-sans mt-3.5 leading-relaxed font-light">Loading...</p>
+          </div>
+        </div>
+
+        <!-- Chevron Right -->
+        <button class="p-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/15 text-white active:scale-90 transition-all cursor-pointer" onclick="nextMovieSlide()">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+          </svg>
+        </button>
+
+      </div>
+
+      <!-- Small index indicator list circles -->
+      <div class="flex gap-2.5 mt-8 justify-center items-center">
+        <span class="lightbox-dot w-2 h-2 rounded-full bg-white/30"></span>
+        <span class="lightbox-dot w-2 h-2 rounded-full bg-white/30"></span>
+        <span class="lightbox-dot w-2 h-2 rounded-full bg-white/30"></span>
+        <span class="lightbox-dot w-2 h-2 rounded-full bg-white/30"></span>
+        <span class="lightbox-dot w-2 h-2 rounded-full bg-white/30"></span>
+        <span class="lightbox-dot w-2 h-2 rounded-full bg-white/30"></span>
+        <span class="lightbox-dot w-2 h-2 rounded-full bg-white/30"></span>
+        <span class="lightbox-dot w-2 h-2 rounded-full bg-white/30"></span>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ================= 11. FLOATING AMBIENT AUDIO CONTROLLER ================= -->
+  <div class="fixed bottom-4 right-4 z-40 flex items-center gap-3">
+    
+    <!-- Audio Wave equalizer animation indicator (Fades in when custom music plays) -->
+    <div id="playing-status" class="glass-card rounded-2xl py-2.5 px-4 flex items-center gap-2.5 shadow-xl border border-white/10 select-none opacity-0 translate-x-12 transition-all duration-700">
+      <div class="flex gap-0.5 items-end h-6 w-8 justify-center select-none">
+        <span class="eq-bar eq-bar-1"></span>
+        <span class="eq-bar eq-bar-2"></span>
+        <span class="eq-bar eq-bar-3"></span>
+        <span class="eq-bar eq-bar-4"></span>
+      </div>
+      <p class="text-[10px] font-mono uppercase tracking-widest text-[#5EA8FF] select-none pr-1">Now Playing 🎵</p>
+    </div>
+
+    <!-- Circle Glowing Music button -->
+    <button id="btn-music" class="w-14 h-14 rounded-full bg-gradient-to-r from-premium-blue to-premium-sky text-white flex items-center justify-center shadow-[0_4px_20px_rgba(94,168,255,0.45)] hover:shadow-[0_4px_30px_rgba(94,168,255,0.7)] border border-white/20 hover:scale-105 active:scale-95 transition-all duration-300 relative group cursor-pointer" onclick="toggleAudioPlaying()">
+      <!-- Play icon overlay -->
+      <svg id="music-play-svg" class="w-6 h-6 text-white" viewBox="0 0 20 20" fill="currentColor">
+        <path d="M6.3 2.841A1.5 1.5 0 0 0 4 4.11v11.78a1.5 1.5 0 0 0 2.3 1.269l9.344-5.89a1.5 1.5 0 0 1 0-2.538L6.3 2.84Z" />
+      </svg>
+      <!-- Pause icon overlay -->
+      <svg id="music-pause-svg" class="w-6 h-6 text-white hidden" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M2 10a8 8 0 1 1 16 0 8 8 0 0 1-16 0Zm5-2.25A.75.75 0 0 1 7.75 7h.5a.75.75 0 0 1 .75.75v4.5a.75.75 0 0 1-.75.75h-.5a.75.75 0 0 1-.75-.75v-4.5Zm4 0a.75.75 0 0 1 .75-.75h.5a.75.75 0 0 1 .75.75v4.5a.75.75 0 0 1-.75.75h-.5a.75.75 0 0 1-.75-.75v-4.5Z" clip-rule="evenodd" />
+      </svg>
+    </button>
+  </div>
+
+
+  <!-- ================= SYSTEM SCRIPTS SECTION ================= -->
+  <script>
+    /* ================= 1. DEFINE STATIC IMAGES / DYNAMIC METADATA CONTROLS ================= */
+    const primaryImages = [
+      "src/assets/images/love_stars_hill_1782107865883.jpg",
+      "src/assets/images/love_beach_twilight_1782107881207.jpg",
+      "src/assets/images/love_couple_coffee_1782107895665.jpg",
+      "src/assets/images/love_glowing_umbrella_1782107914098.jpg",
+      "src/assets/images/love_lake_lanterns_1782107927764.jpg",
+      "src/assets/images/love_melody_night_1782107941283.jpg",
+      "src/assets/images/love_warm_cuddle_1782107955242.jpg",
+      "src/assets/images/love_holding_hands_1782107970376.jpg"
+    ];
+
+    const fallbackImages = [
+      "img1.jpg", "img2.jpg", "img3.jpg", "img4.jpg",
+      "img5.jpg", "img6.jpg", "img7.jpg", "img8.jpg"
+    ];
+
+    const memoryDetails = [
+      {
+        title: "Menatap Bintang",
+        desc: "Indahnya langit malam penuh bintang, seindah tatapan matamu yang selalu bersinar di hatiku."
+      },
+      {
+        title: "Senja di Pantai",
+        desc: "Melihat senja di pantai itu tenang banget, apalagi kalau nanti bisa ngelihat langsung bareng kamu."
+      },
+      {
+        title: "Cangkir Hangat",
+        desc: "Ngobrol hangat ditemani segelas kopi, kayak obrolan malam kita yang selalu bikin jarak terasa dekat."
+      },
+      {
+        title: "Payung Teduh",
+        desc: "Biar hujan turun deras sekalipun, hati kita bakal selalu terasa hangat dan terlindungi."
+      },
+      {
+        title: "Lentera Harapan",
+        desc: "Menerbangkan lentera sambil berharap dan berdoa semoga kita bisa segera bertemu langsung."
+      },
+      {
+        title: "Melodi Sunyi",
+        desc: "Melodi malam yang tenang, khusus buat nemenin tidur kamu yang nyenyak di sana."
+      },
+      {
+        title: "Kehangatan Nyata",
+        desc: "Meskipun sekarang pelukan kita baru lewat chat dan video call, sayangnya aku ke kamu tulus banget."
+      },
+      {
+        title: "Genggam Jemari",
+        desc: "Janji buat selalu jagain kamu dan megang erat tanganmu, melewati setiap hari bareng-bareng."
+      }
+    ];
+
+    const letterParagraphs = [
+      "Halo Nay sayang... Setiap kali malam datang, aku sering banget ngelihat ke arah langit sambil mikirin kamu di Sulawesi sana. Jarak Lampung - Sulawesi emang jauh banget ya, tapi anehnya tiap kali kita ngobrol atau pas aku mikirin kamu, rasanya deket banget. Aku bersyukur banget bisa kenal dan sayang sama kamu. Di mataku, kamu itu luar biasa, selalu bisa bikin hari-hariku yang biasa aja jadi jauh lebih berwarna dan bahagia.",
+      "Aku masih inget banget gimana awal mula kita kenal. Nggak pernah nyangka sama sekali dari obrolan santai yang nggak direncanakan, pelan-pelan kita bisa sedekat ini. Makin lama ngobrol, ternyata kita punya banyak kesamaan yang bikin nyaman. Suara kamu, candaan kamu, sampe hal-hal random yang kita bahas selalu sukses bikin aku senyum sendiri di depan HP. Dari situ aku sadar, kehadiran kamu itu bener-bener berharga buat aku.",
+      "Sekarsng, semua hal tentang kamu selalu menarik buat aku. Kadang aku bayangin betapa serunya nanti pas kita bisa makan mie ayam bareng, atau nemenin kamu minum es matcha favorit kamu sambil dengerin kamu cerita langsung di depanku. Warna biru kesukaanmu, hari ulang tahunmu tanggal 15 Februari, semuanya jadi hal yang spesial juga buat aku sekarang. Kamu bener-bener udah bawa banyak kebahagiaan baru di hidupku.",
+      "Dan momen spesial kita tanggal 14 Mei kemarin bakal selalu aku simpen rapat di dalam hati. Itu adalah hari di mana kita sepakat buat ngejalani komitmen ini bareng-bareng. Lampung dan Sulawesi emang terpisah laut yang luas, tapi buat aku itu bukan halangan. 14 Mei adalah awal dari janji aku buat selalu ngejaga perasaan ini, setia sama kamu, dan berjuang bareng demi masa depan kita berdua.",
+      "Jalani hubungan jarak jauh (LDR) emang kadang nggak mudah. Dari kangen yang meluap-luap, terutama pas malam-malam sepi. Tapi tiap kali rindu itu dateng, aku selalu inget kalau kita menatap bulan dan langit yang sama. Jarak ribuan kilometer ini cuma memisahkan fisik kita aja, tapi hati kita bakal selalu deket dan terhubung.",
+      "Nay manisku, rasa sayangku ke kamu itu tulus dan serius, bukan janji manis sementara. Aku bakal selalu ada buat kamu, dengerin keluh kesahmu pas lagi capek, dan jadi orang pertama yang nyemangatin kamu. Apapun yang terjadi nanti, aku pengen selalu nemenin kamu, jadi tempat kamu pulang paling nyaman setelah hari-hari yang melelahkan.",
+      "Aku yakin, semua rasa sabar dan perjuangan kita nahan rindu saat ini bakal berbuah manis nanti. Suatu hari, jarak Lampung-Sulawesi ini cuma bakal jadi cerita perjuangan cinta kita yang seru buat diingat kembali. Semua rasa capek karena LDR, video call berjam-jam, semuanya bakal terbayar lunas waktu kita akhirnya bisa terus bareng-bareng tanpa harus kepisah jarak lagi.",
+      "Jadi, tetep semangat dan terus senyum ya, Nay sayang Jaga kesehatanmu baik-baik di sana, dan jangan pernah ragu kalau aku di sini selalu sayang sama kamu. Hati aku udah terkunci rapat cuma buat kamu. Aku sayang kamu hari ini, besok, dan seterusnya."
+    ];
+
+
+    /* ================= 2. AUDIO PLAYBACK MANAGEMENT ENGINE ================= */
+    const bgAudio = document.getElementById('bg-audio');
+    const playingStatus = document.getElementById('playing-status');
+    const musicPlaySvg = document.getElementById('music-play-svg');
+    const musicPauseSvg = document.getElementById('music-pause-svg');
+
+    function toggleAudioPlaying() {
+      if (bgAudio.paused) {
+        bgAudio.play()
+          .then(() => {
+            playingStatus.classList.add('playing');
+            playingStatus.classList.remove('opacity-0', 'translate-x-12');
+            musicPlaySvg.classList.add('hidden');
+            musicPauseSvg.classList.remove('hidden');
+          })
+          .catch((err) => {
+            console.log("Audio play prevented temporarily:", err);
+          });
+      } else {
+        bgAudio.pause();
+        playingStatus.classList.remove('playing');
+        playingStatus.classList.add('opacity-0', 'translate-x-12');
+        musicPlaySvg.classList.remove('hidden');
+        musicPauseSvg.classList.add('hidden');
+      }
+    }
+
+
+    /* ================= 3. TYPEWRITER EFFECT ENGINE ================= */
+    let currentParagraphIndex = 0;
+    let currentCharIndex = 0;
+    let isTypingPaused = false;
+    let typingTimer = null;
+    const letterBody = document.getElementById('letter-body');
+
+    const typingSpeed = 48; // speed in milliseconds per letter
+    const pauseDelayBetweenParagraphs = 2000;
+
+    function typeCodeSequentially() {
+      if (isTypingPaused) return;
+
+      // Ensure elements are styled correctly
+      if (currentParagraphIndex >= letterParagraphs.length) {
+        // finished typing writing letters
+        document.getElementById('playing-status').classList.remove('typing');
+        return;
+      }
+
+      // Find current active paragraph or configure a new paragraph node
+      let activeP = letterBody.children[currentParagraphIndex];
+      if (!activeP) {
+        activeP = document.createElement('p');
+        activeP.className = 'transition-transform duration-500 scale-95 opacity-0 active-para';
+        letterBody.appendChild(activeP);
+        
+        // Stagger visual entrance transition
+        setTimeout(() => {
+          activeP.classList.remove('scale-95', 'opacity-0');
+          activeP.classList.add('scale-100', 'opacity-100');
+        }, 30);
+      }
+
+      // Add character by character to container
+      const currentSentence = letterParagraphs[currentParagraphIndex];
+      if (currentCharIndex < currentSentence.length) {
+        activeP.innerHTML = currentSentence.substring(0, currentCharIndex + 1);
+        currentCharIndex++;
+
+        // Smoothly scroll the typewriter card downstream so viewer isn't forced to scroll manual
+        const parentCard = letterBody.parentElement;
+        parentCard.scrollTo({
+          top: parentCard.scrollHeight,
+          behavior: 'smooth'
+        });
+
+        typingTimer = setTimeout(typeCodeSequentially, typingSpeed);
+      } else {
+        // Moved to the complete edge sentence line of paragraph node
+        currentParagraphIndex++;
+        currentCharIndex = 0;
+        typingTimer = setTimeout(typeCodeSequentially, pauseDelayBetweenParagraphs);
+      }
+    }
+
+    function toggleLetterPlayback() {
+      const btnPause = document.getElementById('letter-pause-icon');
+      const btnPauseText = document.getElementById('letter-pause-txt');
+
+      if (isTypingPaused) {
+        // resume
+        isTypingPaused = false;
+        btnPauseText.textContent = "Pause";
+        btnPause.innerHTML = `
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-3.5 h-3.5">
+            <path d="M4.5 2A1.5 1.5 0 0 0 3 3.5v9A1.5 1.5 0 0 0 4.5 14h2a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 8 2H4.5ZM11.5 2a1.5 1.5 0 0 0-1.5 1.5v9a1.5 1.5 0 0 0 1.5 1.5h2a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 15 2h-3.5Z" />
+          </svg>
+        `;
+        typeCodeSequentially();
+      } else {
+        // pause
+        isTypingPaused = true;
+        btnPauseText.textContent = "Lanjut";
+        btnPause.innerHTML = `
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-3.5 h-3.5">
+            <path d="M3 3.75A.75.75 0 0 1 3.75 3h.5a.75.75 0 0 1 .75.75v8.5a.75.75 0 0 1-.75.75h-.5a.75.75 0 0 1-.75-.75v-8.5ZM9 3.75A.75.75 0 0 1 9.75 3h.5a.75.75 0 0 1 .75.75v8.5a.75.75 0 0 1-.75.75h-.5a.75.75 0 0 1-.75-.75v-8.5Z" />
+          </svg>
+        `;
+        clearTimeout(typingTimer);
+      }
+    }
+
+    function restartTyping() {
+      clearTimeout(typingTimer);
+      letterBody.innerHTML = "";
+      currentParagraphIndex = 0;
+      currentCharIndex = 0;
+      isTypingPaused = false;
+      
+      const btnPauseText = document.getElementById('letter-pause-txt');
+      btnPauseText.textContent = "Pause";
+      
+      typeCodeSequentially();
+    }
+
+
+    /* ================= 4. REAL-TIME COUNTDOWN TIMER CLOCK ================= */
+    const loveStartDate = new Date("2026-05-14T00:00:00+07:00"); // 14 Mei 2026 UTC+7
+
+    function updateLiveCountdown() {
+      const now = new Date();
+      const diffMs = now - loveStartDate;
+
+      if (diffMs < 0) {
+        // Security checks if client dates are set backward
+        document.getElementById('countdown-days').textContent = "00";
+        document.getElementById('countdown-hours').textContent = "00";
+        document.getElementById('countdown-minutes').textContent = "00";
+        document.getElementById('countdown-seconds').textContent = "00";
+        return;
+      }
+
+      const totalSeconds = Math.floor(diffMs / 1000);
+      const totalMinutes = Math.floor(totalSeconds / 60);
+      const totalHours = Math.floor(totalMinutes / 60);
+      const days = Math.floor(totalHours / 24);
+
+      const hours = totalHours % 24;
+      const minutes = totalMinutes % 60;
+      const seconds = totalSeconds % 60;
+
+      // Add padded zero
+      document.getElementById('countdown-days').textContent = days.toString().padStart(2, '0');
+      document.getElementById('countdown-hours').textContent = hours.toString().padStart(2, '0');
+      document.getElementById('countdown-minutes').textContent = minutes.toString().padStart(2, '0');
+      document.getElementById('countdown-seconds').textContent = seconds.toString().padStart(2, '0');
+    }
+
+    // Tick-loop
+    setInterval(updateLiveCountdown, 1000);
+    updateLiveCountdown();
+
+
+    /* ================= 5. INTERACTIVE CAROUSEL LIGHTBOX GALLERY ================= */
+    let activeLightboxIndex = 0;
+
+    function openLightbox(index) {
+      activeLightboxIndex = index;
+      const lightbox = document.getElementById('lightbox');
+      const img = document.getElementById('lightbox-img');
+      const label = document.getElementById('lightbox-label');
+      const desc = document.getElementById('lightbox-desc');
+
+      // Sync active state attributes
+      const currentMeta = memoryDetails[index];
+      img.src = primaryImages[index];
+      
+      // Automatic fallback loader checker inside loop 
+      img.onerror = function() {
+        this.onerror = null;
+        this.src = fallbackImages[index];
+      }
+
+      label.textContent = currentMeta.title;
+      desc.textContent = currentMeta.desc;
+
+      // Refresh active indicators points
+      const dots = document.querySelectorAll('.lightbox-dot');
+      dots.forEach((dot, dIdx) => {
+        if (dIdx === index) {
+          dot.className = "lightbox-dot w-3.5 h-3.5 rounded-full bg-[#5EA8FF] shadow-[0_0_8px_#5EA8FF] transition-all";
+        } else {
+          dot.className = "lightbox-dot w-2 h-2 rounded-full bg-white/30 transition-all";
+        }
+      });
+
+      // Present visual modal overlay
+      lightbox.classList.remove('hidden');
+      setTimeout(() => {
+        lightbox.classList.remove('opacity-0');
+        lightbox.querySelector('.max-w-4xl').classList.add('scale-100');
+        lightbox.querySelector('.max-w-4xl').classList.remove('scale-95');
+      }, 50);
+    }
+
+    function closeLightbox(e) {
+      if (e && e.target !== document.getElementById('lightbox')) return;
+      const lightbox = document.getElementById('lightbox');
+      
+      lightbox.classList.add('opacity-0');
+      lightbox.querySelector('.max-w-4xl').classList.add('scale-95');
+      lightbox.querySelector('.max-w-4xl').classList.remove('scale-100');
+
+      setTimeout(() => {
+        lightbox.classList.add('hidden');
+      }, 300);
+    }
+
+    function prevMovieSlide() {
+      let idx = activeLightboxIndex - 1;
+      if (idx < 0) idx = primaryImages.length - 1;
+      openLightbox(idx);
+    }
+
+    function nextMovieSlide() {
+      let idx = activeLightboxIndex + 1;
+      if (idx >= primaryImages.length) idx = 0;
+      openLightbox(idx);
+    }
+
+    // Attach Mobile Swipe gesture capability to Lightbox
+    let swipeStartX = 0;
+    const lightboxModal = document.getElementById('lightbox');
+    lightboxModal.addEventListener('touchstart', (e) => {
+      swipeStartX = e.touches[0].clientX;
+    }, {passive: true});
+
+    lightboxModal.addEventListener('touchend', (e) => {
+      const swipeEndX = e.changedTouches[0].clientX;
+      const dist = swipeEndX - swipeStartX;
+      if (Math.abs(dist) > 90) { // minimum distance
+        if (dist > 0) {
+          prevMovieSlide(); 
+        } else {
+          nextMovieSlide();
+        }
+      }
+    }, {passive: true});
+
+
+    /* ================= 6. STARS BACKGROUND CANVAS GENERATION ENGINE ================= */
+    const canvas = document.getElementById('sky-canvas');
+    const ctx = canvas.getContext('2d');
+
+    let starsArray = [];
+    let shootingStars = [];
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      starsArray = [];
+      initStars();
+    }
+
+    class Star {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 1.5;
+        this.baseOpacity = Math.random() * 0.7 + 0.3;
+        this.opacity = this.baseOpacity;
+        this.twinkleFactor = Math.random() * 0.03 + 0.01;
+        this.growing = true;
+      }
+
+      draw() {
+        ctx.fillStyle = `rgba(161, 205, 255, ${this.opacity})`;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      update() {
+        if (this.growing) {
+          this.opacity += this.twinkleFactor;
+          if (this.opacity >= 1) this.growing = false;
+        } else {
+          this.opacity -= this.twinkleFactor;
+          if (this.opacity <= this.baseOpacity) this.growing = true;
+        }
+      }
+    }
+
+    class ShootingStar {
+      constructor() {
+        this.reset();
+      }
+
+      reset() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * (canvas.height * 0.4); // spawn in top 40% of page
+        this.length = Math.random() * 80 + 40;
+        this.speedX = Math.random() * 4 + 4;
+        this.speedY = Math.random() * 2 + 2;
+        this.opacity = 1;
+        this.fadeOutSpeed = Math.random() * 0.02 + 0.01;
+      }
+
+      draw() {
+        ctx.strokeStyle = `rgba(161, 205, 255, ${this.opacity})`;
+        ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        ctx.moveTo(this.x, this.y);
+        ctx.lineTo(this.x - this.length, this.y - this.length * 0.5);
+        ctx.stroke();
+      }
+
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        this.opacity -= this.fadeOutSpeed;
+
+        if (this.opacity <= 0) {
+          this.reset();
+        }
+      }
+    }
+
+    function initStars() {
+      const starDensity = Math.floor((canvas.width * canvas.height) / 6000);
+      for (let i = 0; i < starDensity; i++) {
+        starsArray.push(new Star());
+      }
+      
+      // Limit 2 shooting stars in parallel
+      for (let j = 0; j < 2; j++) {
+        shootingStars.push(new ShootingStar());
+      }
+    }
+
+    function animateStars() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      starsArray.forEach(star => {
+        star.update();
+        star.draw();
+      });
+
+      shootingStars.forEach(star => {
+        star.update();
+        star.draw();
+      });
+
+      requestAnimationFrame(animateStars);
+    }
+
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+    animateStars();
+
+
+    /* ================= 7. TRANSITION FADE ENTRANCE SYSTEM ================= */
+    const btnOpen = document.getElementById('btn-open');
+    const openingScreen = document.getElementById('opening-screen');
+    const mainContent = document.getElementById('main-content');
+
+    // Setup beautiful landing hearts in opening
+    function createOpeningHearts() {
+      const container = document.getElementById('opening-hearts');
+      const shapes = ["💙", "✨", "🌸", "💙", "🌟"];
+      
+      for (let i = 0; i < 20; i++) {
+        const heart = document.createElement('div');
+        heart.className = 'floating-heart select-none';
+        
+        // Random placement parameters
+        heart.textContent = shapes[Math.floor(Math.random() * shapes.length)];
+        heart.style.left = `${Math.random() * 100}vw`;
+        heart.style.top = `${Math.random() * 100 + 100}vh`; // spawn below view
+        
+        const randomDuration = Math.random() * 6 + 6;
+        heart.style.animationDuration = `${randomDuration}s`;
+        heart.style.animationDelay = `${Math.random() * 5}s`;
+        
+        container.appendChild(heart);
+      }
+    }
+
+    createOpeningHearts();
+
+    // Opening Click Event Handler
+    btnOpen.addEventListener('click', () => {
+      // 1. Play romantic background audio
+      toggleAudioPlaying();
+
+      // 2. Hide Opening screen with elegant fade transition out
+      openingScreen.classList.add('opacity-0', 'scale-110', 'pointer-events-none');
+      
+      // 3. Make main content visible & fade elements back in
+      mainContent.classList.remove('hidden');
+      setTimeout(() => {
+        mainContent.classList.remove('opacity-0');
+        openingScreen.classList.add('hidden');
+      }, 500);
+
+      // 4. Trigger Typewriter sequential typing
+      setTimeout(() => {
+        typeCodeSequentially();
+      }, 2000);
+    });
+
+  </script>
+</body>
+</html>
